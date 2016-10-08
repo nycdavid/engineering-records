@@ -1,7 +1,7 @@
 # Site settings
 title: Private Method
 header-img: img/home-bg.jpg
-email: david.ko@damncarousel.com
+email: david.ko@pvtmethod.com
 copyright_name:
 description: "Word"
 baseurl: ""
@@ -9,7 +9,7 @@ url: "http://www.pvtmethod.com"
 twitter_username:
 github_username: nycdavid
 facebook_username:
-email_username: david.ko@damncarousel.com
+email_username: david.ko@pvtmethod.com
 
 # Google Analytics
 # To enable google analytics, uncomment below line with a valid Google Tracking ID

@@ -1,5 +1,6 @@
 ---
 layout:     post
+published: false
 title:      "Limit the exposure of React components"
 subtitle:   "Simplify your tests and make project on-boarding a snap"
 date:       2016-10-08 12:00:00

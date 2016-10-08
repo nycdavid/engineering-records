@@ -13,7 +13,7 @@ email_username: david.ko@damncarousel.com
 
 # Google Analytics
 # To enable google analytics, uncomment below line with a valid Google Tracking ID
-# google_tracking_id:
+google_tracking_id: "UA-85187610-2"
 
 # Build settings
 markdown: kramdown

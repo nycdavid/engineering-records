@@ -33,27 +33,33 @@ when completed, will output the sentence "My name is [NAME] and I'm [AGE] years 
 
 1. First, we start by writing out the string that is to be our template and replacing
 the positions of it with handlebars-style interpolation blocks.
-    ```go
+
+    {% raw %}
+    ```
       templateString := "My name is {{.Name}} and I'm {{.Age}} years old."
     ```
-Let's stop to notice that there is a period (.) in front of the attribute name.
-This is necessary for Go's template parsing and must always be there.
+    {% endraw %}
+    Let's stop to notice that there is a period (.) in front of the attribute name.
+    This is necessary for Go's template parsing and must always be there.
 
 1. Let's now create a data object to join this template and have it provide the data
 that it expects. We'll use Go's almighty struct for this:
-```go
-type Person struct {  
-  Age  int
-  Name string
-}
-```
-Also worth noticing: *the case in the attributes of the above struct match the ones
-called for in `templateString`.*
+
+    ```
+    type Person struct {
+      Age  int
+      Name string
+    }
+    ```
+    Also worth noticing: *the case in the attributes of the above struct match the ones
+    called for in `templateString`.*
 
 1. Next, we'll create a new, named template and pass it the string we created above
 to prepare it to receive data. We'll also use two functions from the `template`
 package: `New` & `Parse`:
-    ```go
+
+    {% raw %}
+    ```
       // template#New : func New(name string) *Template
       // Accepts a string as the name and returns an instance of *Template
 
@@ -64,9 +70,13 @@ package: `New` & `Parse`:
       templateString := "My name is {{.Name}} and I'm {{.Age}} years old."
       tmpl, err := template.New("davidSentence").Parse(templateString)
     ```
+    {% endraw %}
+
 1. Finally, we call `Execute` on the template which compiles a brand new text string
 according to the data provided to it and writes it to an `io.Writer` of your choice.
-    ```go
+
+    {% raw %}
+    ```
       // template.Execute :  func (t *Template) Execute(wr io.Writer, data interface{}) error
       // Invoked on an already existing instance of Template, Execute writes a fully
       // compiled text string to an `io.Writer` like os.Stdout
@@ -87,6 +97,7 @@ according to the data provided to it and writes it to an `io.Writer` of your cho
 
       // #=> My name is David and I'm 29 years old.
     ```
+    {% endraw %}
 
 ## Handling more complex types (like enumerables)
 Interpolating simple data types are handy, but the true power of templates comes
@@ -102,50 +113,54 @@ Suppose we have a slice of strings called fruit:
 
 When we create a template to display the above data, we first create a template string
 with a `range` block:
-```go
-  tmplStr := `
-    List of my favorite fruit:
-    {{range .}}
-    {{end}}
-  `
-```
+
+    {% raw %}
+      tmplStr := `
+        List of my favorite fruit:
+        {{range .}}
+        {{end}}
+      `
+    {% endraw %}
+
 the `.` indicates that the data to enumerate on is available at the root (and
 does not have to be found with a specific key)
 
 Within the `range` block, we have access to the individual elements of the enumerable,
 thus we're able to access (and display) them by:
-```go
+  {% raw %}
+  ```
   tmplStr := `
     List of my favorite fruit:
     {{range .}}
 +   - {{.}}
     {{end}}
   `
-```
+  ```
+  {% endraw %}
 Again, the `.` here means that we're accessing the data stored at the root of the
 element. If, for example, the element was a map or struct instead of an array,
-we'd access the data via `{{.[ATTRIBUTE]}}` instead.
+we'd access the data via {% raw %}`{{.[ATTRIBUTE]}}`{% endraw %} instead.
 
 Now that we've crafted our template string, we're able to create a template
 and execute it with the appropriate data:
 
-```go
-  fruit := []string{"Apple", "Banana", "Strawberry"}
-  tmplStr := `
-    List of my favorite fruit:
-    {{range .}}
-    - {{.}}
-    {{end}}
-  `
+    {% raw %}
+      fruit := []string{"Apple", "Banana", "Strawberry"}
+      tmplStr := `
+        List of my favorite fruit:
+        {{range .}}
+        - {{.}}
+        {{end}}
+      `
 
-  tmpl := template.New("favoriteFruit").Parse(tmplStr)
-  tmpl.Execute(os.Stdout, fruit)
+      tmpl := template.New("favoriteFruit").Parse(tmplStr)
+      tmpl.Execute(os.Stdout, fruit)
 
-  //  Favorite fruit:
-	//	- Apple
-	//	- Banana
-	//	- Strawberry
-```
+      //  Favorite fruit:
+    	//	- Apple
+    	//	- Banana
+    	//	- Strawberry
+    {% endraw %}
 
 ## Refactoring your templates into files
 Declaring a template inline in your code is perfectly fine and *does* work,
@@ -154,13 +169,14 @@ What better way to allow re-use of our template than to refactor it into a file
 that we can read in?
 
 Let's create a file called `fruit.txt`:
-```
-  fruit.txt
-  List of my favorite fruit:
-  {{range .}}
-  - {{.}}
-  {{end}}
-```
+
+    {% raw %}
+      fruit.txt
+      List of my favorite fruit:
+      {{range .}}
+      - {{.}}
+      {{end}}
+    {% endraw %}
 
 Now, instead of using the `Parse` method for a template string, we can use the
 `ParseFiles` method to look for files that contain the templates we want to

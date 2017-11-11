@@ -1,4 +1,4 @@
-baseURL = "http://example.com/"
+baseURL = "//engineering-records/"
 languageCode = "en-us"
 title = "Velvet Reactor"
 theme = "minimal"
@@ -18,17 +18,17 @@ googleAnalytics = ""
     highlightLanguages = ["go", "ruby", "javascript"]
 
 [[menu.main]]
-    url = "/engineering-records"
+    url = "/"
     name = "Home"
     weight = 1
 
 [[menu.main]]
-    url = "/engineering-records/post/"
+    url = "/post/"
     name = "Posts"
     weight = 2
 
 [[menu.main]]
-    url = "/engineering-records/project/"
+    url = "/project/"
     name = "Projects"
     weight = 3
 
@@ -50,3 +50,6 @@ googleAnalytics = ""
     url = "https://www.linkedin.com/in/davidsjko/"
     name = "linkedin"
     weight = 3
+
+[[permalinks]]
+    post = "/engineering-records/:title/"

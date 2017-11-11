@@ -1,13 +1,14 @@
 baseURL = "//engineering-records/"
 languageCode = "en-us"
-title = "Velvet Reactor"
+title = "RedVelvet"
 theme = "minimal"
 disqusShortname = "username" # delete this to disable disqus comments
 googleAnalytics = ""
+canonifyURLs = true
 
 [params]
     author = "David Ko"
-    description = "Engineering Records"
+    description = "Velvet Reactor's engineering blog"
     githubUsername = "nycdavid"
     accent = "red"
     showBorder = true
@@ -23,12 +24,12 @@ googleAnalytics = ""
     weight = 1
 
 [[menu.main]]
-    url = "/post/"
+    url = "/posts/"
     name = "Posts"
     weight = 2
 
 [[menu.main]]
-    url = "/project/"
+    url = "/projects/"
     name = "Projects"
     weight = 3
 

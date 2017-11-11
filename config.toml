@@ -1,4 +1,4 @@
-baseURL = "//engineering-records/"
+baseURL = "http://blog.velvetreactor.com/"
 languageCode = "en-us"
 title = "RedVelvet"
 theme = "minimal"

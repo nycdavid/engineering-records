@@ -4,7 +4,6 @@ title = "RedVelvet"
 theme = "minimal"
 disqusShortname = "username" # delete this to disable disqus comments
 googleAnalytics = ""
-canonifyURLs = true
 
 [params]
     author = "David Ko"

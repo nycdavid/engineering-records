@@ -18,17 +18,17 @@ googleAnalytics = ""
     highlightLanguages = ["go", "ruby", "javascript"]
 
 [[menu.main]]
-    url = "/"
+    url = "/engineering-records"
     name = "Home"
     weight = 1
 
 [[menu.main]]
-    url = "/post/"
+    url = "/engineering-records/post/"
     name = "Posts"
     weight = 2
 
 [[menu.main]]
-    url = "/project/"
+    url = "/engineering-records/project/"
     name = "Projects"
     weight = 3
 

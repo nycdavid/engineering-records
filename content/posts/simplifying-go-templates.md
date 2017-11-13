@@ -1,7 +1,7 @@
 ---
 title: "Simplifying Go templates"
 date: 2017-11-04
-tags: ["go"]
+tags: ["go", "templates"]
 draft: false
 ---
 

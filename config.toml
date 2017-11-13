@@ -8,7 +8,7 @@ googleAnalytics = ""
 [params]
     author = "David Ko"
     description = "Velvet Reactor's engineering blog"
-    githubUsername = "nycdavid"
+    githubUsername = "velvetreactor"
     accent = "red"
     showBorder = true
     backgroundColor = "white"

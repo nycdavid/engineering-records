@@ -38,7 +38,7 @@ written.
 If you're anything like me though, you'll soon begin to wonder "How can I write
 code that *can* account for multiple situations?" Even if your code shouldn't
 necessarily be unpredictable, there *are* times where you'd want it to be
-__flexible__, a trait that, I would think, isn't a farfetched ask of any
+__flexible__. This is a trait that, I would think, isn't a farfetched ask of any
 codebase or language.
 
 ## An example
@@ -61,7 +61,7 @@ func concat(arg1 string, arg2 string) string {
 }
 ```
 
-What if we wanted to concat two `int` types together? This is a little more
+What if we wanted to concat two `int` types together? This is a bit more
 complicated because we have to convert the integers to strings prior to
 attempting to use them in the call to `Sprintf`, but once we know how to do
 that... this, too, is quite simple.
@@ -80,22 +80,24 @@ func concat(arg1 int, arg2 int) string {
 ```
 
 But what if we wanted to allow a mix of `int` and `string` without necessarily
-specifying which argument was what? Go won't let us pass an integer as an
-argument that we previously declared as a string and vice versa. Even so,
-we don't necessarily want to prescribe that everyone who uses our function
-adhere to a strict rule of only 1 integer and 1 string, passed in a specific
-order. This is precisely where those new to static typing (including me) may
-begin chafe under it's rigidity.
+specifying which argument was what? Go won't let us pass an integer in place
+of a string and vice versa. Even so, we don't necessarily want to prescribe
+in the method signature that everyone who uses our function pass their
+arguments in a specific order.
+
+This is precisely where those new to static typing (including me) may have begun
+to chafe under it's rigidity.
 
 ## Enter Interfaces
 
 > Interfaces, simply explained, allow a type to be defined solely by what
-methods the type contains.
+methods the type implements.
 
 Luckily, the creators of Go, in their infinite wisdom, decided to add interfaces
 to the language! Interfaces, simply explained, allow a type to be defined solely
-by what methods the type contains. Let me give an example first, followed by an
-example:
+by what methods the type implements.
+
+Let's see an example first:
 
 ```go
 import (
@@ -112,16 +114,17 @@ func concat(arg1 operand, arg2 operand) {
 
 The most significant bit is the `type operand interface{}`. What we're doing
 here is we're defining a type `operand` with an empty interface, which means we
-*don't require anything* for a type to implement the `operand` interface. What
-this translates to when set as a type for a function parameter is that we can
-pass *any* type to the above `concat` function and the compiler will consider
-that interface implemented.
+*don't require anything* for a type to implement the `operand` interface.
+
+What this translates to when set as a type for a function argument is that we
+can pass *any* type to the above `concat` function and the compiler will
+consider that interface implemented (because operand doesn't require anything).
 
 We aren't quite done yet, though. Although we've accounted for the normalizing
-of the function parameter, Go's static typing is never too far off. We can't
+of the function parameter, Go's static typing isn't quite satisfied. We can't
 simply declare an empty interface and then do whatever we want with it once
 we have it. That would be a loophole that completely nullifies any of the
-compiler's attempts for type safety.
+benefits of the compiler's attempts at type safety.
 
 What, then, does the body of the `concat` function look like?
 
@@ -130,12 +133,12 @@ What, then, does the body of the `concat` function look like?
 Although we've gotten the arguments into the function via an acceptable form,
 we can't quite do what we want with the `operand` type just yet. If you attempt
 to pass them to any calls to `fmt.Sprintf` you'll have the compiler complain
-to you that you need to perform what's known as a __type assertion__.
+that you need to perform what's known as a __type assertion__.
 
 A type assertion is Go's way of ensuring type safety even when using something
 abstract/flexible like an interface. It is, effectively, a way to coerce an
 interface into one of Go's native types, thereby allowing us to start using
-the type in functions that allow it. Here's what that looks like:
+the type in situations that require it. Here's what that looks like:
 
 ```go
 import (
@@ -199,8 +202,8 @@ func concat(arg1 operand, arg2 operand) {
 ```
 
 Now we can see that we're able to do a `fmt.Sprintf` because our arguments have
-all now been normalized into strings that we can interpolate and finally print
-them out with `fmt.Sprintln`.
+all been normalized into strings that we can interpolate and print out with
+`fmt.Println`.
 
 ---
 

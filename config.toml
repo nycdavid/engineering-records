@@ -2,7 +2,7 @@ baseURL = "http://blog.velvetreactor.com/"
 languageCode = "en-us"
 title = "RedVelvet"
 theme = "minimal"
-disqusShortname = "username" # delete this to disable disqus comments
+disqusShortname = "redvelvet-1" 
 googleAnalytics = ""
 
 [params]

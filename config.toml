@@ -2,7 +2,7 @@ baseURL = "http://blog.velvetreactor.com/"
 languageCode = "en-us"
 title = "RedVelvet"
 theme = "minimal"
-disqusShortname = "redvelvet-1" 
+disqusShortname = "redvelvet-1"
 googleAnalytics = ""
 
 [params]
@@ -42,7 +42,7 @@ googleAnalytics = ""
     weight = 1
 
 [[menu.icon]]
-    url = "https://github.com/nycdavid/"
+    url = "https://github.com/velvetreactor/"
     name = "github"
     weight = 2
 

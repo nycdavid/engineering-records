@@ -89,3 +89,26 @@ middleware stack with the same HTTP context, effectively allowing the request
 to move onto the next bit of processing.
 
 ## Calling `echo.Use`
+
+In order to register a middleware function with the Echo stack, we have to
+invoke the `echo.Use` function and pass it the middleware function that we
+wrote above as an argument.
+
+That would look something like this:
+
+```go
+func ServerHeader(next echo.HandlerFunc) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		c.Response().Header().Set(echo.HeaderServer, "Echo/3.0")
+		return next(c)
+	}
+}
+
+func main() {
+  echo := echo.New()
+
+  echo.Use(ServerHeader)
+}
+```
+
+Notice that `ServerHeader` is sent into `Use` as a function rather than invoked.

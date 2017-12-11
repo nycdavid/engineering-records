@@ -112,3 +112,16 @@ func main() {
 ```
 
 Notice that `ServerHeader` is sent into `Use` as a function rather than invoked.
+
+## Example Middleware: Query Param Parser
+
+Let's try writing a middleware that parses the query params of a URL and stores
+that information in the request context so that it's easily fetched by the user.
+
+```go
+func main() {
+  echo := echo.New()
+
+  echo.Use(ParseUrl)
+}
+```

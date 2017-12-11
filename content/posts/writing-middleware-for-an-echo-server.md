@@ -119,6 +119,12 @@ Let's try writing a middleware that parses the query params of a URL and stores
 that information in the request context so that it's easily fetched by the user.
 
 ```go
+func ParseUrl(next echo.HandlerFunc) echo.HandlerFunc {
+  return func(ctx echo.Context) error {
+    
+  }
+}
+
 func main() {
   echo := echo.New()
 

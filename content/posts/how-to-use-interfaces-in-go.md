@@ -1,7 +1,7 @@
 ---
-title: "Using interfaces for flexibility"
+title: "How to use Interfaces in Go"
 date: 2017-11-12
-tags: ["go", "interfaces"]
+tags: ["go", "interfaces", "how to use interfaces in go"]
 draft: false
 ---
 

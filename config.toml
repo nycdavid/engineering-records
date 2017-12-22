@@ -1,13 +1,13 @@
 baseURL = "http://blog.velvetreactor.com/"
 languageCode = "en-us"
-title = "RedVelvet"
+title = "How to Learn Golang"
 theme = "minimal"
 disqusShortname = "redvelvet-1"
 googleAnalytics = "UA-111421177-1"
 
 [params]
     author = "David Ko"
-    description = "Velvet Reactor's engineering blog"
+    description = "Go basics and best practices"
     githubUsername = "velvetreactor"
     accent = "red"
     showBorder = true

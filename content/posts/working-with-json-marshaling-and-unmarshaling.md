@@ -1,9 +1,9 @@
 ---
-title: "Golang JSON: Marshaling & Unmarshaling"
+title: "json - Marshaling & Unmarshaling"
 date: 2017-11-19
 tags: ["go", "json"]
 draft: false
-meta_description: "Learn how to convert JSON to a struct in Golang by using Marshaling. Also learn how to convert a struct into JSON with Marshaling."
+meta_description: "Learn how to convert JSON to a struct in Golang by using Unmarshaling. Also learn how to convert a struct into JSON with Marshaling."
 ---
 
 Every software engineer working in web application development has had to deal

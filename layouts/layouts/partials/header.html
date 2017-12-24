@@ -4,7 +4,11 @@
         {{ partial "head-open" . }}
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        {{ if .Params.meta_description }}
         <meta description="{{ .Params.meta_description }}">
+        {{ else }}
+        <meta description="Writing Golang and looking for a web framework? Learn everything you need to know in this guide that covers everything from the basics to more advanced topics like JSON, structs, performance and concurrency.">
+        {{ end }}
         <title>{{ .Title }} | VelvetReactor</title>
         {{ partial "css" . }} {{ partial "js" . }} {{ .Hugo.Generator }}
         {{ if .RSSLink }}

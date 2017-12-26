@@ -4,7 +4,7 @@
         {{ partial "head-open" . }}
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta description="{{ .Params.meta_description }}">
+        <meta name="description" content="{{ .Params.meta_description }}">
         <title>{{ .Title }} | VelvetReactor</title>
         {{ partial "css" . }} {{ partial "js" . }} {{ .Hugo.Generator }}
         {{ if .RSSLink }}

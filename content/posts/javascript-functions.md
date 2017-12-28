@@ -34,15 +34,14 @@ The ability to do this is important when we realize that Javascript executes
 some functions __asynchronously__, meaning that a function will begin and be left
 alone to do its work while the rest of the program executes.
 
-Async functions are outside of the scope of this article, but the ability to pass
+Although async functions are outside of the scope of this article, the ability to pass
 a function in to another one is crucial because, if an asynchronous function knows
 about another function during it's execution, it has the ability to execute
 that function when its own execution is complete.
 
 One way to provide awareness to a function of the existence of another function
-is by __passing it in as a parameter__, a benefit provided by __first class functions__.
-
-A function in this style is a __callback function__.
+is by __passing it in as a parameter__, a feature provided by __first class
+functions__.
 
 [TODO image]
 

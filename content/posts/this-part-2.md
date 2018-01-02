@@ -1,111 +1,33 @@
 ---
-title: "this in nodejs and the browser, Part 2: Inside of Function Declarations"
+title: "this in nodejs and the browser, Part 2: bind, call & apply"
 date: 2018-01-02
 tags: ["javascript", "this", "nodejs", "browser"]
-draft: true
+draft: false
 ---
 
-# `this` within a function declaration
-In this post, we'll talk about the various values that `this` can take on when
-declared inside of a function declaration in the different cases below and, it's
-worth noting that we'll be looking at these cases while the Javascript engine
-is set to __strict mode__.
+# Functions and `this`
+In the [previous post](/posts/this-part-1), we learned that `this` in the global
+is simply the global scope itself. This, of course, isn't of much use to us and
+is simply a starting point.
 
-There are 3 different scenarios that are worth exploring while working with `this`
-inside of a function:
+The real essence of Javascript arises from being able to evaluate and return
+`this` in a function setting. The function is our workhorse and so being able
+to do different things depending on the value of `this` is
 
-* A __single function declaration__.
-* A __nested function declaration__ where a function is declared within another function.
-* An __arrow function declaration__.
+In this post, we're going to explore 2 different ways in which you can change
+the value of `this` at runtime to whatever you want:
 
-## Single function
-This would look like the following:
-
-```javascript
-function gimmeThis() {
-  return this;
-}
-```
-
-Here's the million dollar question: what would be the return value of the `gimmeThis`
-function?
-
-It would be `undefined`!
-
-This is wholly dependent on the decision to use "strict mode" while writing
-Javascript. __If we weren't in strict mode__, the value of `this` would have been
-implicitly declared to be the outer containing scope, which, in this case would
-have been the global scope.
-
-## Function within another function
-This scenario can be thought of as somewhat derivative of the above scenario.
-It's simpler to reason about as long as you remember that, in strict mode,
-the value of `this` within a function becomes `undefined` if not specifically
-declared.
-
-```javascript
-function() {
-  console.log(this);
-  (function () {
-    console.log(this);
-  })()
-}
-```
-
-NOTE: the 2nd function that's declared within the outer function uses a Javascript
-idiom called an __IIFE__ (pronounced "iffy"), or an __immediately invoked function
-expression__. You can read more about the IIFE construct [here](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)
-
-## Fat Arrow Function
-The scenario above exposed a "sharp edge" that many a Javascript developer has
-grappled with in the past when working with the ES5 specification of Javascript:
-__functions will lose their knowledge of `this` when nested in another function
-declaration__.
-
-This tended to be a fair source of frustration as difficult-to-trace bugs as
-its usually something that you have to "just know".
-
-Luckily the ES6/ES2015 specification introduced a construct to specifically
-combat this issue: [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions#Arrow_functions)
+1. The `bind` method
+2. The `call/apply` method
 
 ---
 
-What __arrow functions__ allow you to do is to "keep the lexical value of `this`"
-in the body of the function declaration. What this means is that when you declare
-an arrow function, the value of `this` inside of that function will automagically
-take on the `this` value from the outside scope in which it was declared.
+## Function.prototype.bind
+`bind` is a method that can be called on any function and accepts an object as
+its first argument and a list of additional arguments.
 
-Let's take a look with an example:
+What `bind` allows you to do is the following:
 
-```javascript`
-const thisObj = { name: 'School House Rock' };
-
-// without an arrow function
-function conjunction() {
-  return (function() {
-    return this;
-  })();
-}
-conjunction.bind(thisObj)()
-
-// with an arrow function
-function conjunction() {
-  return (() => {
-    return this;
-  })()
-}
-conjunction.bind(thisObj)()
-```
-
-Let's see what the first example evaluates to:
-
-![Non-arrow function in the nodejs REPL](https://i.imgur.com/ljKOyxu.png)
-
-And now the second example?
-
-![Arrow function in the nodejs REPL](https://i.imgur.com/v7y2AOk.png)
-
-As is demonstrated in the latter example, an arrow function will allow one to
-preserve the value of `this`, even if a function is nested, preventing any
-nasty surprises from sneaking up on you later on during the execution of your
-program.
+* Create a function that sets the `this` value to whatever object you pass in
+* Prepend additional arguments to the arguments already listed out by the
+original function definition.

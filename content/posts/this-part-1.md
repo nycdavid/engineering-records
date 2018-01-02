@@ -52,8 +52,8 @@ in strict mode.
 In order to keep this cognitive load light (which I believe to be crucial when
 learning), I'm going to make a concerted effort to keep these blog posts small.
 
-In the next post in the series we'll dive into what `this` looks like within
-different types of functions.
+In the [next post in the series](/posts/this-part-2) we'll dive into what `this`
+looks like within different types of functions.
 
 ## An aside about strict mode...
 

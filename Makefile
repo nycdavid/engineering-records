@@ -1,4 +1,4 @@
-hugo-serve:
-	hugo serve -b http://localhost:1313/engineering-records
+dev:
+	atom . && hugo serve
 deploy:
 	hugo && s3cmd sync -r ./public/* s3://www.velvetreactor.com --delete-removed

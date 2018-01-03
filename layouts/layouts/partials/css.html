@@ -19,7 +19,7 @@
 {{ range .Site.Params.css }} <link rel="stylesheet" href="{{ . }}"> {{ end }}
 
 <!-- google fonts -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ .Site.Params.font }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ .Site.Params.font }}:400,700">
 
 <!-- highlight.js -->
 {{ if .Site.Params.highlight | default false }} <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/{{ .Site.Params.highlightStyle | default "default" }}.min.css"> {{ end }}

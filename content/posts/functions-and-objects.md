@@ -15,6 +15,7 @@ __key-value pairs__, where all the keys are unique. Analogous concepts in other
 languages include a __hash in Ruby__ or a __map in Go__.
 
 We'll be diving into the following:
+
 * How to get and set properties on Objects
 * How to declare functions in Objects
 * How to use those functions to access an objects attributes

@@ -92,3 +92,12 @@ footer {
 img {
     max-width: 100%;
 }
+
+/* custom */
+.subscribe.btn {
+  color: #fff;
+}
+
+.subscribe.btn:hover {
+  color: #fff;
+}

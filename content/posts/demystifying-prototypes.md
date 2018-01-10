@@ -44,7 +44,7 @@ let AmericanCitizen = {
 
 let David = {}
 ```
-In the above code snippt, the `AmericanCitizen` object isn't anything special.
+In the above code snippet, the `AmericanCitizen` object isn't anything special.
 It was declared as a simple object and given several string values and a function
 value.
 

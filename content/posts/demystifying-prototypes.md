@@ -132,7 +132,7 @@ const QueensCountyResident = {
 
 Although each entity has an attribute that accurately reflects its own set (i.e.
 `NYResident` has an `nyResident` attribute that evaluates to true), how do we get
-an object like `QueensCountyResident` to respond to `usCitizen`?
+an object like `QueensCountyResident` to respond to `usResident`?
 
 The answer is: __the prototypal chain__!
 

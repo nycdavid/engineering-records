@@ -1,6 +1,6 @@
 ---
 title: "Useful Methods Series: Array.map & Array.join"
-date: 2018-01-08
+date: 2018-01-11
 tags: ["javascript", "arrays"]
 draft: false
 meta_description: "In this post, we'll examine one of my favorite methods on Array.prototype: Array.map and Array.join. We'll also examine some of their real-world applications and how you can get started using them today."

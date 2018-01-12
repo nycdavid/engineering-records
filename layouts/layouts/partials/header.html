@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="{{ .Params.meta_description }}">
         <meta property="og:title" content="{{ .Title }}">
+        <meta property="og:description" content="{{ .Params.meta_description }}">
         <title>{{ .Title }} | VelvetReactor</title>
         {{ partial "css" . }} {{ partial "js" . }} {{ .Hugo.Generator }}
         {{ if .RSSLink }}

@@ -114,9 +114,9 @@ Lets breakdown what's happening above:
   `ws://localhost:8080`)
 1. We declare a `connections` array that will eventually hold our client connections.
 1. Every time a client connects to the WebSocket Server, we add that client
-connection to the `connections array`.
+connection to the `connections` array.
 
-At this point, the server is running, so let's turn out attention to the clientside.
+At this point, the server is running, so let's turn our attention to the clientside.
 
 ### 2. Client-side: listening for data
 On the client-side, we'll be listening for messages from the server and then

@@ -164,7 +164,7 @@ their price) is able to do so.
 
 Looking at the above graph where we depict a __market clearing equilbrium__, we
 see that the price at which a __consumer's demand__ matches a __producer's supply__
-is $7.00 per pen with 7 pens in the market.
+is $7.50 per pen with 7.5 pens in the market.
 
 Thus, there is neither an excess nor a shortage. However, let's take a look at
 if the market price for pen's was set at \\(p\_0\\):

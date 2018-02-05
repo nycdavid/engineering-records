@@ -1,6 +1,6 @@
 ---
 title: "Building a CLI in nodejs"
-date: 2018-02-02
+date: 2018-02-05
 tags: ["javascript", "nodejs", "cli", "consul"]
 draft: false
 meta_description: "In this post, we're going to be going through the process of

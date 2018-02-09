@@ -12,6 +12,7 @@
           <meta property="og:description" content="Velvet Reactor is a software consultancy based in New York/New Jersey specializing in Javascript, Golang and Ruby. Our blog digs into difficult concepts of these languages, object oriented design, and even economics, game theory and asynchronous/concurrent programming and presents it to the reader in a easy-to-understand and actionable way.">
         {{ end }}
         <meta property="og:title" content="{{ .Title }}">
+        <meta property="og:image" content="{{ .Params.share_img }}">
         <title>{{ .Title }} | VelvetReactor</title>
         {{ partial "css" . }} {{ partial "js" . }} {{ .Hugo.Generator }}
         {{ if .RSSLink }}

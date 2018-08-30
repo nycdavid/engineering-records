@@ -1,0 +1,32 @@
+version: 2
+jobs:
+  deploy:
+    docker:
+      - image: garland/docker-s3cmd:latest
+    environment:
+      - aws_key: $ACCESS_KEY_ID
+      - aws_secret: $SECRET_ACCESS_KEY
+      - cmd: interactive
+      - DEST_S3: s3://www.velvetreactor.com
+    steps:
+      - checkout
+      - run:
+          name: Download Hugo
+          command: wget https://github.com/gohugoio/hugo/releases/download/v0.48/hugo_0.48_Linux-64bit.tar.gz
+      - run:
+          name: Untar Hugo
+          command: tar -zxvf hugo_0.48_Linux-64bit.tar.gz
+      - run:
+          name: Compile with Hugo
+          command: ./hugo
+      - run:
+          name: Setup config file
+          command: /opt/main.sh 
+      - run:
+          name: Deploy
+          command: s3cmd sync -r ./public/* $DEST_S3 --delete-removed
+workflows:
+  version: 2
+  merge_to_master:
+    jobs:
+      - deploy

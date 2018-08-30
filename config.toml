@@ -1,21 +1,26 @@
 baseURL = "https://www.velvetreactor.com/"
 languageCode = "en-us"
-title = "Javascript and Go Tutorials"
-theme = "minimal"
+title = "Words"
+theme = "engimo"
 disqusShortname = "redvelvet-1"
 googleAnalytics = "UA-111421177-1"
+pygmentsStyle = "solarized-light"
 
 [params]
     author = "David Ko"
-    description = "Tutorials in Javascript and Go"
+    description = "Computer words"
     githubUsername = "velvetreactor"
     accent = "red"
     showBorder = true
     backgroundColor = "white"
-    font = "Raleway" # should match the name on Google Fonts!
     highlight = true
     highlightStyle = "solarized-light"
     highlightLanguages = ["go", "ruby", "javascript"]
+
+[params.sidebar]
+    enable = true
+[params.widgets]
+    sidebar = ["about", "search"]
 
 [[menu.main]]
     url = "/"

@@ -44,9 +44,9 @@ Let's outline the steps:
 Assuming, you've already created a project folder, let's create a dead-simple
 `index.js` that simply prints out to `stdout` when invoked:
 
-```javascript
+{{<highlight javascript>}}
 console.log('Hello from cnsl!');
-```
+{{</highlight>}}
 
 Now, let's create a simple `package.json`, which can be done by invoking either
 `yarn init` or `npm init`.
@@ -55,7 +55,7 @@ After generating the `package.json` file, we must add a `bin` key to the first
 level of the JSON object that points to our `index.js` file. This `bin` key
 provides the path to the JS file that will be executed when we invoke `cnsl`.
 
-```json
+{{<highlight json "linenos=true, hl_lines=10">}}
 {
   "name": "cnsl",
   "version": "1.0.0",
@@ -65,14 +65,12 @@ provides the path to the JS file that will be executed when we invoke `cnsl`.
   "author": "David Ko <david.ko@velvetreactor.com>",
   "license": "MIT",
   "scripts": {},
-
   "bin": "./index.js",
-
   "dependencies": {
     "commander": "^2.13.0"
   }
 }
-```
+{{</highlight>}}
 
 Before we continue, we have to make sure that we add what's known as a __shebang__
 to the top of the `index.js` file. That looks like this: `#!/usr/bin/env node`.
@@ -82,11 +80,11 @@ need to tell it how to interpret all of the lines to follow, and in this case
 we want it to execute the file as a nodejs script. Now our `index.js` file
 should look like this:
 
-```javascript
+{{<highlight javascript>}}
 #!/usr/bin/env node
 
 console.log('Hello from cnsl!');
-```
+{{</highlight>}}
 
 Finally, we install the package globally with `npm install -g` run from the project
 folder and we should be able to invoke `cnsl` and get our output.
@@ -107,13 +105,13 @@ Commander.js makes this incredibly simple: first let's `require('commander')` in
 our executable `index.js` file and ensure that Commander parses the arguments
 given to it.
 
-```javascript
+{{<highlight javascript>}}
 // index.js
 
 const cnsl = require('commander');
 
 cnsl.parse(process.argv);
-```
+{{</highlight>}}
 
 At this point, you should be able to run `cnsl --help` and get a nice, little
 menu just like all of the CLI tools that you're used to:
@@ -125,14 +123,14 @@ Commander.js does all of this automatically!
 Now, let's use Commander.js' `option` function to define a flag that will be
 available when invoking `cnsl`:
 
-```javascript
+{{<highlight javascript>}}
 // index.js
 
 const cnsl = require('commander');
 
 cnsl.option('-s, --say [phrase]', 'Make cnsl speak');
 cnsl.parse(process.argv);
-```
+{{</highlight>}}
 
 The last part of this milestone is having `cnsl` detect the input string and
 `console.log` it back out. To do that, we have to:
@@ -144,7 +142,7 @@ Detecting whether a flag or option was supplied is done by invoking the name
 of the option on the `cnsl` object in the execution script. This exists as a
 boolean and is convenient to put into a `if` clause like so:
 
-```javascript
+{{<highlight javascript>}}
 // index.js
 const cnsl = require('commander');
 
@@ -153,7 +151,7 @@ cnsl.parse(process.argv);
 
 if (cnsl.say) {
 }
-```
+{{</highlight>}}
 
 The interpolation step is a bit more interesting. Commander uses C-style `printf`
 format specifiers for string interpolation, much like the Go language does. If
@@ -162,13 +160,13 @@ want the value interpolated.
 
 Let's add a `console.log` to our code in this manner:
 
-```javascript
+{{<highlight javascript>}}
 // index.js
 
 if (cnsl.say) {
   console.log('%s', cnsl.say);
 }
-```
+{{</highlight>}}
 
 And the effect of our code:
 
@@ -187,19 +185,22 @@ passed.
 
 Let's see what the code for that looks like:
 
-```javascript
+{{<highlight javascript>}}
 cnsl
   .option('-A, --agent <cmd>', 'Call the Consul Agent API');
-```
+{{</highlight>}}
 
 Now, let's give it a callback function that gets executed when the option is
 provided to `cnsl`:
 
-```javascript
+{{<highlight javascript>}}
 cnsl
-  .option('-A, --agent <cmd>', 'Call the Consul Agent API', async cmd => {
-  });
-```
+  .option(
+    '-A, --agent <cmd>', 
+    'Call the Consul Agent API', 
+    async cmd => {}
+  );
+{{</highlight>}}
 
 Notice that we're using the [async/await pattern](/posts/async-await) here because
 we'll making an asynchronous HTTP request in this function.
@@ -208,15 +209,15 @@ Let's also create a small wrapper for the return object, as there will a lot of
 extraneous information from the Consul Agent API, that we don't need to concern
 ourselves with for this example:
 
-```javascript
+{{<highlight javascript>}}
 function Member(json) {
   this.name = json.Name;
 }
-```
+{{</highlight>}}
 
 Finally, we'll add the body of the function to handle the command:
 
-```javascript
+{{<highlight javascript>}}
 cnsl
   .option('-A, --agent <cmd>', 'Call the Consul Agent API', async cmd => {
     let url = `http://localhost:8500/v1/agent/${cmd}`;
@@ -225,7 +226,7 @@ cnsl
     let members = apiMembers.map(member => new Member(member));
     console.log(members);
   });
-```
+{{</highlight>}}
 
 Notice that the __first argument of the callback function__ is the actual command
 that we supplied to the `--agent` option.

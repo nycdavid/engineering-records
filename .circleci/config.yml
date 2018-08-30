@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  deploy:
+    docker:
+      - image: garland/docker-s3cmd:latest
+    environment:
+      - aws_key: $AWS_ACCESS_KEY_ID
+      - aws_secret: $AWS_SECRET_ACCESS_KEY
+      - DEST_S3: s3://www.velvetreactor.com
+    steps:
+      - checkout
+workflows:
+  version: 2
+  merge_to_master:
+    jobs:
+      - deploy

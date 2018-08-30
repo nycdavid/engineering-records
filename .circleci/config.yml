@@ -14,6 +14,10 @@ jobs:
           fingerprints:
             - "7a:d8:72:16:fc:31:76:66:cf:d6:c0:f4:cc:03:53:84"
       - run:
+          name: Configure SSL
+          command: |
+            apk add ca-certificates
+      - run:
           name: Download Hugo
           command: wget https://github.com/gohugoio/hugo/releases/download/v0.48/hugo_0.48_Linux-64bit.tar.gz
       - run:
@@ -21,7 +25,7 @@ jobs:
           command: tar -zxvf hugo_0.48_Linux-64bit.tar.gz
       - run:
           name: Clone Engimo theme
-          command: git clone git@github.com:nycdavid/engimo.git themes/engimo
+          command: git clone https://github.com/nycdavid/engimo.git themes/engimo
       - run:
           name: Compile with Hugo
           command: ./hugo

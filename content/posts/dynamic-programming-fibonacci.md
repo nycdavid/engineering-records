@@ -3,6 +3,7 @@ title: "Dynamic Programming Problem: Fibonacci sequence"
 date: 2018-08-25
 tags: ["algorithms", "dynamic programming", "fibonacci", "golang"]
 draft: false
+mathjax: true
 meta_description: "We take a look at creating an efficient algorithm for solving
 for the nth fibonacci number via dynamic programming."
 ---
@@ -65,7 +66,7 @@ Rather than calculating the solutions to previous subproblems repeatedly
 (like recursive algorithms inefficiently do), we simply store each solution 
 as it's calculated and then do a simple lookup when that solution is needed.
 
-```go
+{{<highlight go "linenos=table, hl_lines=9-11">}}
 package main
 
 func main() {
@@ -78,7 +79,7 @@ func Fib(nth int) int {
   table[0] = 0
   table[1] = 1
 }
-```
+{{</highlight>}}
 
 In this case, assuming we want to get the 10th Fibonacci number, we allocate
 memory for an __11 element slice__ (the base case plus Fibonacci numbers 1-10).
@@ -91,7 +92,7 @@ We use the __index__ of the slice as the key to store its corresponding solution
 #### Looping
 Now that we have our solutions table, we can write the rest of the Fib function:
 
-```go
+{{<highlight go "linenos=table, hl_lines=13-16">}}
 package main
 
 func main() {
@@ -109,7 +110,7 @@ func Fib(nth int) int {
   }
   return table[nth]
 }
-```
+{{</highlight>}}
 
 What we're doing is iterating from `i = 2` (the first empty position) to `i = 10` 
 (the Fibonacci number we're attempting to solve for). As we calculate each one,

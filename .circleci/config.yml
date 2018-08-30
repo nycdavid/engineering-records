@@ -10,6 +10,9 @@ jobs:
       - DEST_S3: s3://www.velvetreactor.com
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "7a:d8:72:16:fc:31:76:66:cf:d6:c0:f4:cc:03:53:84"
       - run:
           name: Download Hugo
           command: wget https://github.com/gohugoio/hugo/releases/download/v0.48/hugo_0.48_Linux-64bit.tar.gz

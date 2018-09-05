@@ -1,7 +1,7 @@
 ---
 title: "Dynamic Programming Problem: Fibonacci sequence"
 date: 2018-08-25
-tags: ["algorithms", "dynamic programming", "fibonacci", "golang"]
+tags: ["algorithms", "dynamic programming", "fibonacci", "golang", "CS8803"]
 draft: false
 mathjax: true
 meta_description: "We take a look at creating an efficient algorithm for solving

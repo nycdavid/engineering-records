@@ -3,6 +3,7 @@ title: "Discrete Distributions & Probability Functions"
 date: 2018-02-12
 tags: ["probability", "statistics", "probability functions", "distributions"]
 draft: false
+mathjax: true
 meta_description: "In this post, we're going to be taking a closer look at
 discrete random variables, as well as what their distributions look like. We'll
 also be defining a probability function for these discrete distributions."

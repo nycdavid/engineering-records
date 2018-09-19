@@ -3,6 +3,7 @@ title: "Applications of Javascript: Supply and Demand"
 date: 2018-02-01
 tags: ["javascript", "applications", "microeconomics", "supply and demand"]
 draft: false
+mathjax: true
 meta_description: "In this post, we'll take a look at the economic forces of supply
 and demand and see how we can model these concepts using Javascript."
 ---

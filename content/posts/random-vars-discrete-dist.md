@@ -3,6 +3,7 @@ title: "Probability in Javascript: Random Variables & Distributions"
 date: 2018-02-08
 tags: ["probability", "statistics", "random variables", "distributions"]
 draft: false
+mathjax: true
 meta_description: "In this post, we're going to be exploring very important and
 basic concepts in Probability: random variables and their distributions. These are
 very important in a multitude of different fields like economics, mathematics,

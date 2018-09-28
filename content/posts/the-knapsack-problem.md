@@ -10,7 +10,7 @@ the knapsack optimization problem."
 
 # The Problem
 In today's problem we're going to take a look at the knapsack problem, in which 
-you're given a an imaginary knapsack (bag) that can hold up to a specific amount
+you're given an imaginary knapsack (bag) that can hold up to a specific amount
 of weight.
 
 You're then given several items of various weights and values and the task of
@@ -48,7 +48,7 @@ Object # | Value | Weight
 3        | 8     | 10
 4        | 1     | 5
 
-Additionally, let's say that we have a bag that can hold a max weight of 
+Additionally, assume that we have a bag that can hold a max weight of 
 \\(B = 22\\).
 
 How would we solve this problem of item selection? There are two methods that
@@ -74,15 +74,15 @@ Object # | Value | Weight | \\(U\\)
 3        | 8     | 10     | 0.8
 4        | 1     | 5      | 0.2
 
-The greatest unit-value object is of course object 1, so we can select that.
+The greatest unit-value object is of course object 1, so we select that.
 However, because of the weight constraint of our bag, we're unable to select
 any item aside from the last one, object 4, which we do.
 
 Now we're left with a bag containing items 1 and 4, with values totaling 16.
 
-But if we look closer we can see that this solution is indeed suboptimal. If
+But if we look closer we can see that this solution is not the best we can do. If
 we had selected item 2 as our first (suboptimal) choice and then item 3, we'd 
-get a higher value (18), while still adhering to our weight restriction.
+yield a higher value (18), while still adhering to our weight restriction.
 
 It's evident that the greedy approach won't work for our situation.
 
@@ -125,7 +125,6 @@ Breaking down the above, we can see the following points:
     * \\(b\\) represents the max capacity for the bag and varies between 
       \\(0 \leq b \leq B\\)
       
-
 # The Recurrence Relation
 Before diving into the recurrence relation, let's conceptualize the different
 scenarios that are possible:
@@ -212,7 +211,7 @@ func max(i, j int) int {
 
 Caveats to mention here:
 
-* Remember to allocate an additional slot for the base case in the table, if
+* Remember to allocate additional slots for the base cases in the table, if
   the language you're using allows memory management.
 * Ensure that we don't conflate which rows pertain to \\(i\\) in the table, 
   and which rows pertain to \\(j\\).

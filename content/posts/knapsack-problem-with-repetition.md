@@ -131,3 +131,50 @@ func max(a, b int) int {
   return b
 }
 {{</highlight>}}
+
+# A Simpler Subproblem
+While the above approach works and is perfectly valid, we __can__ revise our
+subproblem definition to be simpler and eliminate the parameter \\(i\\).
+
+Let's see what happens to the recurrence if we remove \\(i\\):
+
+$$
+K(b) = \max_{i} \\{v_i + K(b-w_i): 1 \leq i \leq n, w_i \leq b \\}
+$$
+
+The above states that we are attempting to maximize \\(K(b)\\) while varying \\(i\\)
+and subject to the following constraints:
+
+* \\(1 \leq i \leq n\\): We're varying \\(i\\) between \\(1\\) and \\(n\\)
+* \\(w_i \leq b\\): We're ensuring that \\(a_i\\) will actually fit in the bag.
+
+Considering these two conditions, the main equation we're working with is
+\\(v_i + K(b-w_i)\\).
+
+Hopefully the above will make sense, intuitively. What we're doing is taking an item
+(thereby adding its value \\(v_i\\)) and then subtracting its weight \\(w_i\\) from
+\\(b\\) to get the remaining weight to pass into \\(K\\).
+
+This is a __much__ simpler recurrence because we need not build out a two-dimensional
+solutions table. Let's take a look at the code for this:
+
+{{<highlight go "linenos=true">}}
+package main
+
+import (
+  "fmt"
+)
+
+func main() {
+  // Let's pretend there's a slice of items here
+  simplerKnapsack(item, b)
+}
+
+func simplerKnapsack(items []map[string]int, b int) {
+  T := make([]int, b+1) 
+  for i := 1; i <= b; i++ {
+    itemWeight := items[i-1]["weight"]
+    T[i] = items[i-1]["value"] + T[b-itemWeight]
+  }
+}
+{{</highlight>}}

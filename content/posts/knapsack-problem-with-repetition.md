@@ -174,7 +174,10 @@ func simplerKnapsack(items []map[string]int, b int) {
   T := make([]int, b+1) 
   for i := 1; i <= b; i++ {
     itemWeight := items[i-1]["weight"]
-    T[i] = items[i-1]["value"] + T[b-itemWeight]
+    itemValue := items[i-1]["value"]
+    if itemWeight <= b && T[b] < (itemValue + T[b-itemWeight]) {
+      T[i] = items[i-1]["value"] + T[b-itemWeight]
+    }
   }
 }
 {{</highlight>}}

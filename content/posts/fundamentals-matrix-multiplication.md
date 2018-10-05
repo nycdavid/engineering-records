@@ -71,8 +71,8 @@ If we had 4 matrices, \\(A, B, C\\) and \\(D\\), and wanted to calculate their p
 * \\(A \times (B \times (C \times D))\\)
 * \\((A \times B) \times (C \times D)\\)
 
-The question that we'll try to answer in this section is: how many operations does each
-method __cost__? And which is the cheapest?
+The question that we'll try to answer in this section is: how do we analyze the 
+operations __cost__?
 
 How would we figure out how many operations a given matrix multiplication would cost?
 Let's take a look at an example problem:

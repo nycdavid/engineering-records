@@ -32,7 +32,7 @@ $$
 
 The rules of multiplication are:
 
-1. When multiplying matrices \\(m_1 \times m_2\\), the numbers of columns of \\(m_1\\) 
+1. When multiplying matrices \\(m_1 \cdot m_2\\), the numbers of columns of \\(m_1\\) 
   (\\(m\_{1_c}\\)) __must match__ the numbers of rows in \\(m_2\\) (\\(m\_{2_r}\\))
     * \\(m\_{1_c} = m\_{2_r}\\)
 1. The dimensions of the resulting product of the two matrices, \\(m_3\\), will be 
@@ -131,7 +131,7 @@ So how many operations are we looking at to calculate the above?
     * To calculate the multiplication of \\(A \times B\\), we'd need to execute
       \\((A_c-1) \cdot A_r\\) addition operations
 * Multiplications:
-    * For each combination of row and column, we'd need to do \\(A_c\\) multiplications
-    * which would also happen \\(A_r\\) times
+    * We'd need to do \\(A_c\\) multiplications \\(B_c\\) times.
+    * Then, we would have to perform the above operation for each row in \\(A\\)
     * To calculate the multiplication of \\(A \times B\\), we'd need to execute 
-      \\(A_c \cdot A_r\\) multiplication operations.
+      \\(A_r \cdot A_c \cdot B_c\\) multiplication operations.

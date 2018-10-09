@@ -39,3 +39,24 @@ influences operation cost, we can see that:
 
 * __Inputs__: the sizes \\(m_0, m_1, \ldots, m_n\\)
 * __Goal__: finding minimum cost of computing \\(A_1 \times A_2 \times \cdots \times A_n\\)
+
+# The Subproblem Definition
+Let's define it as follows:
+
+$$
+C(i) = \text{minimum cost for computing } A_1 \times A_2 \times \cdots \times A_n
+$$
+
+Let's also take a look at this matrix multiplication problem in the form of a
+binary tree, as that will help us visualize the tactics that we're about to use.
+
+![Binary tree representation of chain matrix multiplication](https://imgur.com/ENGTWcy.png)
+
+We can see that every pair of child nodes is actually a term in the multiplication
+operation that produces their parent node. 
+
+For example, if we multiply the child nodes \\((2)\\) and \\((3)\\) together, we 
+will get our root node \\((1)\\) (their parent).
+
+> A __substring__ of a string is a prefix of a suffix or, equivalently, a suffix 
+  of a prefix.

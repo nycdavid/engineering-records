@@ -35,19 +35,13 @@ predictably generate dimensions for the \\(ith\\) matrix while ensuring that
 its dimensions will be "multiplicatively valid" with the matrix that comes
 after it.
 
-Because we know that the dimensions of the operands are the only variable that
-influences operation cost, we can see that: 
-
-* __Inputs__: the sizes \\(m_0, m_1, \ldots, m_n\\)
-* __Goal__: finding minimum cost of computing \\(A_1 \times A_2 \times \cdots \times A_n\\)
-
 # The Subproblem Definition
 Typically, we would craft our subproblem such that we consider prefixes, like "minimum
 cost from \\(A_1\\) to \\(A_i\\) where \\(i \leq n\\)". 
 
 Instead, we'll find it much more suitable and complete to consider __substrings__ of 
 \\(A_1 \times A_2 \times \cdots \times A_n\\) where we consider \\(A_i\\) through \\(A_j\\)
-where \\(1 \leq i \leq j \leq n\\).
+and where \\(1 \leq i \leq j \leq n\\).
 
 Let's take a look at the binary tree representation of a matrix multiplication problem, 
 as that will help us visualize the tactics that we're about to use.
@@ -68,10 +62,10 @@ C(i, j) = \text{the minimum cost of calculating } A_i \times A\_{i+1} \times
 $$
 
 # The Recurrence Relation
-Let's determine the base case for \\(C(i, j)\\): at first glance we may conclude that
-there's a single base case \\(C(0, 0) = 0\\) because if \\(i = j = 0\\), then
-we are starting and ending with a single matrix (i.e. there's no multiplication work
-to be done).
+Let's determine the base case for \\(C(i, j)\\): at first glance we may want to
+conclude that there's a single base case \\(C(0, 0) = 0\\) because if \\(i = j = 0\\),
+then we are starting and ending with a single matrix (i.e. there's no multiplication
+work to be done).
 
 But is this not the case for __all__ situations in which \\(i = j\\)? Indeed it is,
 and so if our two-dimensional solutions table were to have the base cases filled in,
@@ -80,9 +74,9 @@ it would contain zeros all along its diagonal:
 $$
 C = 
 \begin{bmatrix}
-  0 & C\_{12} & \cdots & C\_{1n} \\\\\\
-  C\_{21} & 0 & \cdots & C\_{2n} \\\\\\
+  0 & c\_{12} & \cdots & c\_{1n} \\\\\\
+  c\_{21} & 0 & \cdots & c\_{2n} \\\\\\
   \vdots & \vdots & \ddots & \vdots \\\\\\
-  C\_{n1} & C\_{n2} & \cdots & 0
+  c\_{n1} & c\_{n2} & \cdots & 0
 \end{bmatrix}
 $$

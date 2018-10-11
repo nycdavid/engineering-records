@@ -68,8 +68,11 @@ then we are starting and ending with a single matrix (i.e. there's no multiplica
 work to be done).
 
 But is this not the case for __all__ situations in which \\(i = j\\)? Indeed it is,
-and so if our two-dimensional solutions table were to have the base cases filled in,
-it would contain zeros all along its diagonal:
+because even if \\(i = j = 100\\), we'd only be concerning ourselved with a single
+matrix \\(A\_{100}\\) and, again, there would be no work to do.
+
+So if our two-dimensional solutions table were to have the base cases filled in,
+it would contain zeros all along its diagonal (\\(A\_{11} = A\_{22} = \ldots = A\_{nn} = 0\\))
 
 $$
 C = 
@@ -80,3 +83,6 @@ C =
   c\_{n1} & c\_{n2} & \cdots & 0
 \end{bmatrix}
 $$
+
+Furthermore, because we're only interested in the cases where \\(i \leq j\\), the only
+area of \\(C\\) that is relevant are the cells __to the right__ of the diagonal.

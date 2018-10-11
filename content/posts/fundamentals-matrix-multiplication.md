@@ -7,8 +7,39 @@ mathjax: true
 meta_description: "Fundamentals of matrix multiplication"
 ---
 
-Below will be a quick review of how to multiply matrices. Let's say we have the 
-following matrices \\(A\\), \\(B\\) and \\(C\\):
+Below will be a quick review of how to multiply matrices. 
+
+The rules of multiplication are:
+
+1. When multiplying matrices \\(A \cdot B\\), the numbers of columns of \\(A\\) 
+  (\\(A_c\\)) __must equal__ the number of rows in \\(B\\) (\\(B_r\\))
+1. The dimensions of the resulting product of the two matrices, \\(C\\), will be 
+  \\(A_r \times B_c\\)
+1. The multiplication operations are carried out in the following manner to populate
+  the cells of the product:
+
+  \\( 
+    \begin{bmatrix}
+      a\_{11} & a\_{12} \\\\\
+      a\_{21} & a\_{22} \\\\\
+      a\_{31} & a\_{32}  
+    \end{bmatrix}
+    \times
+    \begin{bmatrix}
+      b\_{11} & b\_{12} \\\\\
+      b\_{21} & b\_{22} \\\\\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+      a\_{11} \cdot b\_{11} + a\_{12} \cdot b\_{21} & a\_{11} \cdot b\_{12} + a\_{12} \cdot b\_{22} \\\\\
+      a\_{21} \cdot b\_{11} + a\_{22} \cdot b\_{21} & a\_{21} \cdot b\_{12} + a\_{22} \cdot b\_{22} \\\\\
+      a\_{31} \cdot b\_{11} + a\_{32} \cdot a\_{21} & a\_{31} \cdot b\_{12} + a\_{32} \cdot b\_{22}
+    \end{bmatrix}
+  \\)
+
+---
+
+Assuming we have the following matrices \\(A\\), \\(B\\) and \\(C\\):
 
 $$
 A =
@@ -30,37 +61,13 @@ C =
   \end{bmatrix}
 $$
 
-The rules of multiplication are:
-
-1. When multiplying matrices \\(m_1 \cdot m_2\\), the numbers of columns of \\(m_1\\) 
-  (\\(m\_{1_c}\\)) __must match__ the numbers of rows in \\(m_2\\) (\\(m\_{2_r}\\))
-    * \\(m\_{1_c} = m\_{2_r}\\)
-1. The dimensions of the resulting product of the two matrices, \\(m_3\\), will be 
-  \\(m\_{1_r} \times m\_{2_c}\\)
-    * \\( 
-        \begin{bmatrix}
-          a\_{11} & a\_{12} \\\\\
-          a\_{21} & a\_{22} \\\\\
-          a\_{31} & a\_{32}  
-        \end{bmatrix}
-        \times
-        \begin{bmatrix}
-          b\_{11} & b\_{12} \\\\\
-          b\_{21} & b\_{22} \\\\\
-        \end{bmatrix}
-        =
-        \begin{bmatrix}
-          a\_{11} \cdot b\_{11} + a\_{12} \cdot b\_{21} & a\_{11} \cdot b\_{12} + a\_{12} \cdot b\_{22} \\\\\
-          a\_{21} \cdot b\_{11} + a\_{22} \cdot b\_{21} & a\_{21} \cdot b\_{12} + a\_{22} \cdot b\_{22} \\\\\
-          a\_{31} \cdot b\_{11} + a\_{32} \cdot a\_{21} & a\_{31} \cdot b\_{12} + a\_{32} \cdot b\_{22}
-        \end{bmatrix}
-      \\)
-
 From the above rules, we can infer the following:
 
 * Matrix \\(A\\) has 3 columns while matrix \\(B\\) has 3 rows, therefore, 
   \\(A \times B\\) would be a valid matrix multiplication operation. 
 * \\(A \times C\\), however, would not be, since \\(C\\) only has two rows.
+
+> __DIY__: What is the product of \\(A \cdot B\\)?
 
 # The Cost of Matrix Multiplication
 If we had 4 matrices, \\(A, B, C\\) and \\(D\\), and wanted to calculate their product, 

@@ -30,9 +30,10 @@ the chain. For instance, when it comes time to perform \\(A_1 \times A_2\\), if
 \\(A_1\\) has dimensions \\(m_0 \times m_1\\), then \\(A_2\\)'s rows __must__
 equal \\(m_1\\). 
 
-We have to have a formulaic way of determining the dimensions of each term, hence 
-the requirement that the dimensions of any given matrix must be 
-\\(m\_{i-1} \times m_i\\),
+Enforcing that \\(A_i\\) has dimensions \\(m\_{i-1} \times m_i\\) allows us to
+predictably generate dimensions for the \\(ith\\) matrix while ensuring that
+its dimensions will be "multiplicatively valid" with the matrix that comes
+after it.
 
 Because we know that the dimensions of the operands are the only variable that
 influences operation cost, we can see that: 
@@ -41,14 +42,15 @@ influences operation cost, we can see that:
 * __Goal__: finding minimum cost of computing \\(A_1 \times A_2 \times \cdots \times A_n\\)
 
 # The Subproblem Definition
-Let's define it as follows:
+Typically, we would craft our subproblem such that we consider prefixes, like "minimum
+cost from \\(A_1\\) to \\(A_i\\) where \\(i \leq n\\)". 
 
-$$
-C(i) = \text{minimum cost for computing } A_1 \times A_2 \times \cdots \times A_n
-$$
+Instead, we'll find it much more suitable and complete to consider __substrings__ of 
+\\(A_1 \times A_2 \times \cdots \times A_n\\) where we consider \\(A_i\\) through \\(A_j\\)
+where \\(1 \leq i \leq j \leq n\\).
 
-Let's also take a look at this matrix multiplication problem in the form of a
-binary tree, as that will help us visualize the tactics that we're about to use.
+Let's take a look at the binary tree representation of a matrix multiplication problem, 
+as that will help us visualize the tactics that we're about to use.
 
 ![Binary tree representation of chain matrix multiplication](https://imgur.com/ENGTWcy.png)
 
@@ -58,5 +60,29 @@ operation that produces their parent node.
 For example, if we multiply the child nodes \\((2)\\) and \\((3)\\) together, we 
 will get our root node \\((1)\\) (their parent).
 
-> A __substring__ of a string is a prefix of a suffix or, equivalently, a suffix 
-  of a prefix.
+Thus, our subproblem definition, formally stated, is:
+
+$$
+C(i, j) = \text{the minimum cost of calculating } A_i \times A\_{i+1} \times 
+\cdots \times A_j
+$$
+
+# The Recurrence Relation
+Let's determine the base case for \\(C(i, j)\\): at first glance we may conclude that
+there's a single base case \\(C(0, 0) = 0\\) because if \\(i = j = 0\\), then
+we are starting and ending with a single matrix (i.e. there's no multiplication work
+to be done).
+
+But is this not the case for __all__ situations in which \\(i = j\\)? Indeed it is,
+and so if our two-dimensional solutions table were to have the base cases filled in,
+it would contain zeros all along its diagonal:
+
+$$
+C = 
+\begin{bmatrix}
+  0 & C\_{12} & \cdots & C\_{1n} \\\\\\
+  C\_{21} & 0 & \cdots & C\_{2n} \\\\\\
+  \vdots & \vdots & \ddots & \vdots \\\\\\
+  C\_{n1} & C\_{n2} & \cdots & 0
+\end{bmatrix}
+$$

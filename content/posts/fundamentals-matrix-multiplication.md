@@ -134,4 +134,11 @@ So how many operations are we looking at to calculate the above?
     * We'd need to do \\(A_c\\) multiplications \\(B_c\\) times.
     * Then, we would have to perform the above operation for each row in \\(A\\)
     * To calculate the multiplication of \\(A \times B\\), we'd need to execute 
+<<<<<<< Updated upstream
       \\(A_r \cdot A_c \cdot B_c\\) multiplication operations.
+=======
+      \\(A_c \cdot A_r \cdot B_c\\) multiplication operations.
+
+Now, because multiplications are the dominant operation (they take longer), we can
+say that the operation \\(A \times B\\) costs \\(A_c \cdot A_r \cdot B_c\\).
+>>>>>>> Stashed changes

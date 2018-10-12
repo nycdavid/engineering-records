@@ -143,12 +143,32 @@ So how many operations are we looking at to calculate the above?
     * To calculate the multiplication of \\(A \times B\\), we'd need to execute 
       \\(A_r \cdot A_c \cdot B_c\\) multiplication operations.
 
+# Size of the Product
+
+When we have a chain matrix multiplication problem like
+\\(A_1 \times \cdots \times A_n\\), how can we determine what the resulting size
+of the matrix will be?
+
+Let's break it down:
+
+Product # | Operation                                  | Size
+----------|--------------------------------------------|-------------------------------
+1         | \\(A_1 \times A_2\\)                       | \\(A\_{1_r} \times A\_{2_c}\\)
+2         | \\([A_1 \cdot A_2] \times A_3\\)           | \\(A\_{1_r} \times A\_{3_c}\\)
+3         | \\([A_1 \cdot A_2 \cdot A_3] \times A_4\\) | \\(A\_{1_r} \times A\_{4_c}\\)
+
+As we can see from the table, the number of __rows__ in the resulting matrix consistently
+remain \\(A\_{1_r}\\) while the number of columns will end up being however many columns
+the terminating operand has.
+
+Thus the size of a product will be: \\(A\_{1_r} \times A\_{n_c}\\)
+
 ---
 
 # Wrap up
 
 * Determining resulting matrix size of \\(A_1 \times \cdots \times A_n\\):
-    * \\(A\_{n-1\_r} \times A\_{n_c}\\): number of rows of \\(A\_{n-1}\\) and
+    * \\(A\_{1_r} \times A\_{n_c}\\): number of rows of \\(A_1\\) and
       number of columns of \\(A_n\\)
 * Amount of multiplicative work to calculate \\(A \times B\\):
     * \\(A_r \cdot A_c \cdot B_c\\)

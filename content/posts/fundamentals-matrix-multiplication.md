@@ -142,3 +142,13 @@ So how many operations are we looking at to calculate the above?
     * Then, we would have to perform the above operation for each row in \\(A\\)
     * To calculate the multiplication of \\(A \times B\\), we'd need to execute 
       \\(A_r \cdot A_c \cdot B_c\\) multiplication operations.
+
+---
+
+# Wrap up
+
+* Determining resulting matrix size of \\(A_1 \times \cdots \times A_n\\):
+    * \\(A\_{n-1\_r} \times A\_{n_c}\\): number of rows of \\(A\_{n-1}\\) and
+      number of columns of \\(A_n\\)
+* Amount of multiplicative work to calculate \\(A \times B\\):
+    * \\(A_r \cdot A_c \cdot B_c\\)

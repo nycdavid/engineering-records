@@ -87,3 +87,11 @@ $$
 
 Furthermore, because we're only interested in the cases where \\(i \leq j\\), the only
 area of \\(C\\) that is relevant are the cells __to the right__ of the diagonal.
+
+---
+
+Now, in order to define \\(C(i, j)\\) in terms of earlier subproblems, let's
+look at the binary tree of \\(A_1 \times \cdots \times A_n\\) that's split at some 
+arbitrary point \\(l \leq n\\)
+
+![Multiplication problem split at l](https://imgur.com/934wx5e.png)

@@ -95,3 +95,9 @@ look at the binary tree of \\(A_1 \times \cdots \times A_n\\) that's split at so
 arbitrary point \\(l \leq n\\)
 
 ![Multiplication problem split at l](https://imgur.com/934wx5e.png)
+
+> What would be the size of the product at the root node \\((1)\\) of
+  \\(A_1 \times \cdots \times A_n\\)?
+
+We can recall from the matrix fundamentals post that the size of this matrix
+will be \\(A\_{1_r} \times A\_{n_c}\\)

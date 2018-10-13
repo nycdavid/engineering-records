@@ -99,5 +99,12 @@ arbitrary point \\(l \leq n\\)
 > What would be the size of the product at the root node \\((1)\\) of
   \\(A_1 \times \cdots \times A_n\\)?
 
-We can recall from the matrix fundamentals post that the size of this matrix
-will be \\(A\_{1_r} \times A\_{n_c}\\)
+In order to determine the cost of the root node, we can calculate the work required 
+to multiply the root's two child nodes. Let's calculate the size of each to get that:
+
+* \\(A_1 \times \cdots \times A_l\\): the size of this resulting matrix winds up being 
+  \\(A\_{1_r} \times A\_{l_c}\\) 
+  ([why?](/posts/fundamentals-matrix-multiplication#size-of-the-product))
+* \\(A\_{l+1} \times \cdots \times A_n\\): this size would be 
+  \\(A\_{l+1_r} \times A\_{n_c}\\) 
+* Finally, the work required would be: \\(A\_{1_r} \cdot A\_{l_c} \cdot A\_{n_c}\\)

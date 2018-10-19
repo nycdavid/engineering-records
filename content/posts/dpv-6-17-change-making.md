@@ -13,8 +13,9 @@ a set of coin denominations."
 
 > Given an unlimited supply of coins of denomination \\(x_1, x_2, \ldots, x_n\\),
   we wish to make change for a value \\(v\\); that is, we wish to find a set of coins
-  whose total value is \\(v\\). Given an \\(O(nv)\\) dynamic programming algorithm
-  for the following problem.
+  whose total value is \\(v\\). 
+
+> Provide an \\(O(nv)\\) dynamic programming algorithm for this problem.
 
 Note that in certain scenarios, making change may not be possible, like when 
 \\(v = 12\\) but all we have are coins of denomination 5 and 10.

@@ -1,5 +1,5 @@
 ---
-title: "Mutexes and Thread Control"
+title: "Birrell's Sync Primitives: Mutexes"
 date: 2018-12-20
 tags: ["os", "concurrency", "mutexes", "threads"]
 draft: false

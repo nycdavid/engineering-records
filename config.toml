@@ -20,7 +20,7 @@ pygmentsStyle = "solarized-light"
 [params.sidebar]
     enable = true
 [params.widgets]
-    sidebar = ["about", "search"]
+    sidebar = ["about"]
 
 [[menu.main]]
     url = "/"
@@ -31,11 +31,6 @@ pygmentsStyle = "solarized-light"
     url = "/posts/"
     name = "Posts"
     weight = 2
-
-[[menu.main]]
-    url = "/projects/"
-    name = "Projects"
-    weight = 3
 
 # Social icons to be shown on the right-hand side of the navigation bar
 # The "name" field should match the name of the icon to be used

@@ -1,6 +1,6 @@
 baseURL = "https://www.velvetreactor.com/"
 languageCode = "en-us"
-title = "Words"
+title = "RedVelvet"
 theme = "engimo"
 disqusShortname = "redvelvet-1"
 googleAnalytics = "UA-111421177-1"
@@ -21,6 +21,9 @@ pygmentsStyle = "solarized-light"
     enable = true
 [params.widgets]
     sidebar = ["about"]
+
+[params.comments]
+    enable = true
 
 [[menu.main]]
     url = "/"

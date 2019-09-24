@@ -21,14 +21,11 @@ jobs:
           name: Untar Hugo
           command: tar -zxvf hugo_0.48_Linux-64bit.tar.gz
       - run:
-          name: Clone Engimo theme
-          command: git clone https://github.com/nycdavid/engimo.git themes/engimo
-      - run:
           name: Compile with Hugo
           command: ./hugo
       - run:
           name: Setup config file
-          command: /opt/main.sh 
+          command: /opt/main.sh
       - run:
           name: Deploy
           command: s3cmd sync -r ./public/* $DEST_S3 --delete-removed

@@ -1,7 +1,7 @@
 baseURL = "https://www.velvetreactor.com/"
 languageCode = "en-us"
 title = "RedVelvet"
-theme = "engimo"
+theme = "kiss"
 disqusShortname = "redvelvet-1"
 googleAnalytics = "UA-111421177-1"
 pygmentsStyle = "solarized-light"

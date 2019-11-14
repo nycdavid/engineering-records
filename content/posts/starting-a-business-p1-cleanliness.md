@@ -81,8 +81,8 @@ Additionally, the habit of cleaning is one that has to be developed, just like
 the habit of developing a business day-after-day is one that needs to be
 developed.
 
-In keeping with this, I'm going to be keeping a living document on this blog
-that keeps track of the different goals that I want to achieve for both the
-house and myself.
+In keeping with this, I'm going to be keeping a
+[living document](/posts/published-goals) on this blog that keeps track of the
+different goals that I want to achieve for both the house and myself.
 
-I'll edit this post with the link once it's ready.
+I'll edit this post with [the link](/posts/published-goals) once it's ready.

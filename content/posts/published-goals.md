@@ -49,3 +49,23 @@ record lowest weight (in recent times) of 175 pounds.
 
 ### Resolution:
 _TBD_
+
+## 4. Replace our ugly ceiling fans with nice recessed lights.
+
+We have awful, old looking ceiling fans in our 1930's home that my wife really
+hates.
+
+To be completely honest, I don't love them either. They look like they were
+installed in the 80's and, as most folks know, almost no decor from that era
+aged well. Think of faux wood and the side panel of old school Dodge Caravans.
+
+![Horrible mix of weirdness went into this ceiling fan](https://i.imgur.com/6TBmgxA.jpg)
+
+I think the fact that some of the blades of the fan have succumbed to gravity
+and have started to bend just makes the whole thing look that much worse.
+
+I'll write up a more comprehensive blog post of when I do this since I expect
+it to be a huge learning experience (messing with wiring and electrical).
+
+### Resolution:
+_TBD_

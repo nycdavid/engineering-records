@@ -102,4 +102,12 @@ if this was something that's truly under my control?
 Perhaps a goal that'd be more fundamental to me and my choices would have been
 something like "stay under daily calorie goal".
 
-# TBD
+## Update: 12/4/19
+For the last few days, whenever I catch my mind wandering or wanting to
+complain about the situation that I'm currently in, I've been trying to turn
+my mind back to the present.
+
+What that means is that I'm hyper-focusing on the details of what I'm doing
+rather than focusing every second on __not__ wanting to be there. I think
+this might be helping.
+
